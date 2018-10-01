@@ -3,6 +3,9 @@ package edu.kennesaw.aa;
 import java.util.ArrayList;
 import java.util.List;
 
+/*
+Adapted from https://github.com/mraediaz/Knapsack/blob/master/Knapsack.java
+ */
 public class KnapSack {
 
     private List<ValueAndWeight> valueAndWeights;
@@ -42,8 +45,8 @@ public class KnapSack {
 
                 //take it
                 int f2 = Integer.MIN_VALUE;
-                if (i < numItems && valueAndWeights.get(i).getValue() <= w) {
-                    f2 = valueAndWeights.get(i).getWeight() + table[i - 1][w - valueAndWeights.get(i).getValue()];
+                if (i < numItems && valueAndWeights.get(i).getWeight() <= w) {
+                    f2 = valueAndWeights.get(i).getValue() + table[i - 1][w - valueAndWeights.get(i).getWeight()];
                 }
                 //select the better of two options
                 table[i][w] = Math.max(f1, f2);
@@ -60,14 +63,14 @@ public class KnapSack {
             if (knapsack[n][w]) {
                 take[n] = true;
                 selectedOnes.add(valueAndWeights.get(n));
-                w = w- valueAndWeights.get(n).getValue();
+                w = w- valueAndWeights.get(n).getWeight();
             } else
                 take[n] = false;
         }
 
 
         for(ValueAndWeight each:selectedOnes){
-            maxValue = maxValue +each.getWeight();
+            maxValue = maxValue +each.getValue();
         }
 
 

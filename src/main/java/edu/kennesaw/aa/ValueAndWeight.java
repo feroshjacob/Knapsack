@@ -5,7 +5,7 @@ public class ValueAndWeight {
         return weight;
     }
 
-    public ValueAndWeight(int weight, int value) {
+    public ValueAndWeight(int value,int weight) {
         this.weight = weight;
         this.value = value;
     }
